@@ -58,6 +58,9 @@
       case 'can':
         $pagina = 'cancelados.php';
         break;
+      case 'sl':
+        $pagina = 'slider.php';
+        break;
     }
 
     if (isset($_GET['id']))

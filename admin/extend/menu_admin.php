@@ -20,6 +20,8 @@
   <li><div class="divider"></div></li>
   <li><a class="dropdown-button" href="#!" data-activates="dropdown1"><i class="material-icons">work</i>PROPIEDADES<i class="material-icons right">arrow_drop_down</i></a></li>
   <li><div class="divider"></div></li>
+  <li><a href="../inicio/slider.php"><i class="material-icons">web</i>SLIDER</a></li>
+  <li><div class="divider"></div></li>
   <li><a href="../login/salir.php"><i class="material-icons">power_settings_new</i>SALIR</a></li>
   <li><div class="divider"></div></li>
 </ul>
