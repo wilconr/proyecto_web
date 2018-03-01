@@ -34,11 +34,17 @@ else
   <div class="col s12">
     <div class="card">
       <div class="card-content">
-        <span class="card-title">Propiedades</span>
-        <table>
+        <form action="excel.php" method="post" target="_blank" id="Exportar">
+          <span class="card-title">Propiedades
+            <button class="btn-floating green botonExcel"><i class="material-icons">grid_on</i></button>
+            <input type="hidden" name="datos" id="Datos">
+          </span>
+        </form>
+
+        <table class="excel" border="1">
           <thead>
             <tr class="cabecera">
-              <th>Vista</th>
+              <th class="borrar">Vista</th>
               <th>Num</th>
               <th>Cliente</th>
               <th>Propiedad</th>
@@ -47,7 +53,7 @@ else
               <th>Asesor</th>
               <th>Tipo</th>
               <th>Operacion</th>
-              <th class="center" colspan="5">Opciones</th>
+              <th class="center borrar" colspan="5">Opciones</th>
             </tr>
           </thead>
           <?php
@@ -57,7 +63,7 @@ else
             {
           ?>
             <tr>
-              <td><button data-target="Mod1" id="Mod" value="<?php echo $f['propiedad_inv'] ?>" class="btn-floating modal-trigger teal darken-2"><i class="material-icons">visibility</i></button></td>
+              <td class="borrar"><button data-target="Mod1" id="Mod" value="<?php echo $f['propiedad_inv'] ?>" class="btn-floating modal-trigger teal darken-2"><i class="material-icons">visibility</i></button></td>
               <td><?php echo $f['consecutivo_inv'] ?></td>
               <td><?php echo $f['nombre_cliente'] ?></td>
               <td><?php echo $f['calle_num_inv'].' '.$f['barrio_sector_inv'].' '.$f['municipio_mun'].' ,'.$f['departamento_dep'] ?></td>
@@ -66,11 +72,11 @@ else
               <td><?php echo $f['asesor_cliente'] ?></td>
               <td><?php echo $f['tipo_inmueble_inv'] ?></td>
               <td><?php echo $f['operacion_inv'] ?></td>
-              <td><a href="imagenes.php?id=<?php echo $f['propiedad_inv'] ?>" class="btn-floating blue darken-4"><i class="material-icons">image</i></a></td>
-              <td><a href="mapa.php?mapa=<?php echo $f['mapa_inv'] ?>" target="_blank" class="btn-floating orange darken-3"><i class="material-icons">room</i></a></td>
-              <td><a href="pdf.php?id=<?php echo $f['propiedad_inv'] ?>" class="btn-floating green darken-3"><i class="material-icons">picture_as_pdf</i></a></td>
-              <td><a href="editar_propiedad.php?id=<?php echo $f['propiedad_inv'] ?>" class="btn-floating indigo darken-1"><i class="material-icons">create</i></a></td>
-              <td>
+              <td class="borrar"><a href="imagenes.php?id=<?php echo $f['propiedad_inv'] ?>" class="btn-floating blue darken-4"><i class="material-icons">image</i></a></td>
+              <td class="borrar"><a href="mapa.php?mapa=<?php echo $f['mapa_inv'] ?>" target="_blank" class="btn-floating orange darken-3"><i class="material-icons">room</i></a></td>
+              <td class="borrar"><a href="pdf.php?id=<?php echo $f['propiedad_inv'] ?>" class="btn-floating green darken-3"><i class="material-icons">picture_as_pdf</i></a></td>
+              <td class="borrar"><a href="editar_propiedad.php?id=<?php echo $f['propiedad_inv'] ?>" class="btn-floating indigo darken-1"><i class="material-icons">create</i></a></td>
+              <td class="borrar">
                 <a href="#" class="btn-floating red" onclick="
                 swal({
                   title: 'Esta seguro que desea cancelar la propiedad?',
@@ -130,6 +136,16 @@ else
     });
   });
 
+</script>
+
+<script>
+  $('.botonExcel').click(function()
+  {
+    $('.borrar').remove();
+    $('#Datos').val($("<div>").append($('.excel').eq(0).clone()).html());
+    $('#Exportar').submit();
+    setInterval(function(){location.reload();},3000);
+  });
 </script>
 
 </body>
