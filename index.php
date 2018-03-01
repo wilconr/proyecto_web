@@ -1,3 +1,5 @@
+<?php include 'admin/conexion/conexion_web.php'; ?>
+
 <!DOCTYPE html>
 <html lang="es">
   <head>
@@ -17,34 +19,24 @@
 
     <div class="slider">
       <ul class="slides">
+        <?php
+          $select = $conexion->prepare("SELECT * FROM slider");
+          $select->execute();
+          $resultado = $select->get_result();
+          while($f = $resultado->fetch_assoc())
+          {
+        ?>
         <li>
-          <img src="https://lorempixel.com/580/250/nature/1"> <!-- random image -->
+          <img src="admin/inicio/<?php echo $f['ruta_slider'] ?>">
           <div class="caption center-align">
-            <h3>This is our big Tagline!</h3>
-            <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
+            <h3>Empresa</h3>
+            <h5 class="light grey-text text-lighten-3">Slogan de la empresa</h5>
           </div>
         </li>
-        <li>
-          <img src="https://lorempixel.com/580/250/nature/2"> <!-- random image -->
-          <div class="caption left-align">
-            <h3>Left Aligned Caption</h3>
-            <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
-          </div>
-        </li>
-        <li>
-          <img src="https://lorempixel.com/580/250/nature/3"> <!-- random image -->
-          <div class="caption right-align">
-            <h3>Right Aligned Caption</h3>
-            <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
-          </div>
-        </li>
-        <li>
-          <img src="https://lorempixel.com/580/250/nature/4"> <!-- random image -->
-          <div class="caption center-align">
-            <h3>This is our big Tagline!</h3>
-            <h5 class="light grey-text text-lighten-3">Here's our small slogan.</h5>
-          </div>
-        </li>
+        <?php
+          }
+          $select->close();
+        ?>
       </ul>
     </div>
 
