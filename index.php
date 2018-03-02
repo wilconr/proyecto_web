@@ -41,62 +41,34 @@
     </div>
 
     <div class="row">
+      <?php
+        $selectMarc = $conexion->prepare("SELECT foto_principal_inv, precio_inv, municipio_mun, departamento_dep, barrio_sector_inv, propiedad_inv FROM inventario WHERE marcado_inv = 'SI'");
+
+        $selectMarc->execute();
+        $resultadoMarc = $selectMarc->get_result();
+
+        while ($fMarc = $resultadoMarc->fetch_assoc())
+        {
+      ?>
       <div class="col s12 m6 l3">
         <div class="card">
             <div class="card-image">
-              <img src="http://lorempixel.com/output/city-q-c-640-480-6.jpg">
-              <span class="card-title">Precio</span>
+              <img src="admin/propiedades/<?php echo $fMarc['foto_principal_inv'] ?>">
+              <span class="card-title"><?php echo '$'.number_format($fMarc['precio_inv'],2) ?></span>
             </div>
             <div class="card-content">
-              <p>Direccion</p>
+              <p><?php echo $fMarc['barrio_sector_inv'].' '.$fMarc['municipio_mun'].', '.$fMarc['departamento_dep']; ?></p>
             </div>
             <div class="card-action">
-              <a href="#">Ver mas...</a>
+              <a href="ver_mas.php?id=<?php echo $fMarc['propiedad_inv'] ?>">Ver mas...</a>
             </div>
           </div>
       </div>
-      <div class="col s12 m6 l3">
-        <div class="card">
-            <div class="card-image">
-              <img src="http://lorempixel.com/output/city-q-c-640-480-6.jpg">
-              <span class="card-title">Precio</span>
-            </div>
-            <div class="card-content">
-              <p>Direccion</p>
-            </div>
-            <div class="card-action">
-              <a href="#">Ver mas...</a>
-            </div>
-          </div>
-      </div>
-      <div class="col s12 m6 l3">
-        <div class="card">
-            <div class="card-image">
-              <img src="http://lorempixel.com/output/city-q-c-640-480-6.jpg">
-              <span class="card-title">Precio</span>
-            </div>
-            <div class="card-content">
-              <p>Direccion</p>
-            </div>
-            <div class="card-action">
-              <a href="#">Ver mas...</a>
-            </div>
-          </div>
-      </div>
-      <div class="col s12 m6 l3">
-        <div class="card">
-            <div class="card-image">
-              <img src="http://lorempixel.com/output/city-q-c-640-480-6.jpg">
-              <span class="card-title">Precio</span>
-            </div>
-            <div class="card-content">
-              <p>Direccion</p>
-            </div>
-            <div class="card-action">
-              <a href="#">Ver mas...</a>
-            </div>
-          </div>
-      </div>
+      <?php
+        }
+        $selectMarc->close();
+        $conexion->close();
+      ?>
     </div>
 
     <script src="admin/js/jquery-3.3.1.min.js"></script>

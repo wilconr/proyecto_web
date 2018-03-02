@@ -108,7 +108,7 @@ $select->close();
                   cancelButtonColor: '#d33',
                   confirmButtonText: 'Si, Eliminarla!'
                   }).then(function(){
-                    location.href = 'eliminar_img.php?id=<?php echo $fImg['id_propiedad']?>&ruta=<?php echo $fImg['ruta_img']?>&id_propiedad=<?php echo $id?>';})">
+                    location.href = 'eliminar_img.php?id=<?php echo $fImg['id_img']?>&ruta=<?php echo $fImg['ruta_img']?>&id_propiedad=<?php echo $id?>';})">
                     <img src="<?php echo $fImg['ruta_img'] ?>" alt=""></a>
                 <?php
                 }

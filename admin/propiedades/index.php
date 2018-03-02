@@ -74,7 +74,7 @@ else
               </td>
               <td><?php echo $f['consecutivo_inv'] ?></td>
               <td><?php echo $f['nombre_cliente'] ?></td>
-              <td><?php echo $f['calle_num_inv'].' '.$f['barrio_sector_inv'].' '.$f['municipio_mun'].' ,'.$f['departamento_dep'] ?></td>
+              <td><?php echo $f['calle_num_inv'].' '.$f['barrio_sector_inv'].' '.$f['municipio_mun'].', '.$f['departamento_dep'] ?></td>
               <td><?php echo "$".number_format($f['precio_inv'],2); ?></td>
               <td><?php echo $f['forma_pago_inv'] ?></td>
               <td><?php echo $f['asesor_cliente'] ?></td>
