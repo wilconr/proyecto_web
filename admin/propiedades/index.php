@@ -3,12 +3,12 @@ include '../extend/header.php';
 if (isset($_GET['ope'])) {
   $operacion = $conexion->real_escape_string(htmlentities($_GET['ope']));
 
-  $select = $conexion->prepare("SELECT propiedad_inv,consecutivo_inv,nombre_cliente,calle_num_inv,barrio_sector_inv,departamento_dep,municipio_mun,precio_inv,forma_pago_inv,asesor_cliente,tipo_inmueble_inv,operacion_inv,mapa_inv FROM inventario WHERE estatus_inv = 'ACTIVO' AND operacion_inv = ? ");
+  $select = $conexion->prepare("SELECT propiedad_inv,consecutivo_inv,nombre_cliente,calle_num_inv,barrio_sector_inv,departamento_dep,municipio_mun,precio_inv,forma_pago_inv,asesor_cliente,tipo_inmueble_inv,operacion_inv,mapa_inv,marcado_inv FROM inventario WHERE estatus_inv = 'ACTIVO' AND operacion_inv = ? ");
   $select->bind_param('s',$operacion);
 }
 else
 {
-  $select = $conexion->prepare("SELECT propiedad_inv,consecutivo_inv,nombre_cliente,calle_num_inv,barrio_sector_inv,departamento_dep,municipio_mun,precio_inv,forma_pago_inv,asesor_cliente,tipo_inmueble_inv,operacion_inv,mapa_inv FROM inventario WHERE estatus_inv = 'ACTIVO' ");
+  $select = $conexion->prepare("SELECT propiedad_inv,consecutivo_inv,nombre_cliente,calle_num_inv,barrio_sector_inv,departamento_dep,municipio_mun,precio_inv,forma_pago_inv,asesor_cliente,tipo_inmueble_inv,operacion_inv,mapa_inv,marcado_inv FROM inventario WHERE estatus_inv = 'ACTIVO' ");
   //ARREGLAR ESTA PARTE PARA QUE EL ODAL FUNCIONE BIEN , VER VIDEO 82 DONDE SE HICIERON CAMBIOS QUE ALTERARON EL FUNCIONAMINETO DEL MODAL
 }
 
@@ -46,6 +46,7 @@ else
             <tr class="cabecera">
               <th class="borrar">Vista</th>
               <th>Num</th>
+              <th></th>
               <th>Cliente</th>
               <th>Propiedad</th>
               <th>Precio</th>
@@ -64,6 +65,13 @@ else
           ?>
             <tr>
               <td class="borrar"><button data-target="Mod1" id="Mod" value="<?php echo $f['propiedad_inv'] ?>" class="btn-floating modal-trigger teal darken-2"><i class="material-icons">visibility</i></button></td>
+              <td>
+                <?php if ($f['marcado_inv'] == ''): ?>
+                  <a href="marcado.php?id=<?php echo $f['propiedad_inv'] ?>&marcado=SI"><i class="small grey-text material-icons">grade</i></a>
+                <?php else: ?>
+                  <a href="marcado.php?id=<?php echo $f['propiedad_inv'] ?>&marcado="><i class="small green-text material-icons">grade</i></a>
+                <?php endif; ?>
+              </td>
               <td><?php echo $f['consecutivo_inv'] ?></td>
               <td><?php echo $f['nombre_cliente'] ?></td>
               <td><?php echo $f['calle_num_inv'].' '.$f['barrio_sector_inv'].' '.$f['municipio_mun'].' ,'.$f['departamento_dep'] ?></td>

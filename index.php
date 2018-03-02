@@ -12,9 +12,9 @@
     <link rel="stylesheet" href="admin/css/mover_menu.css">
     <title>Sitio Web</title>
   </head>
-  <body>
+  <body class="blue-grey lighten-4">
     <nav class="red">
-
+      <a href="#" class="brand-logo center">Logo</a>
     </nav>
 
     <div class="slider">
@@ -38,6 +38,65 @@
           $select->close();
         ?>
       </ul>
+    </div>
+
+    <div class="row">
+      <div class="col s12 m6 l3">
+        <div class="card">
+            <div class="card-image">
+              <img src="http://lorempixel.com/output/city-q-c-640-480-6.jpg">
+              <span class="card-title">Precio</span>
+            </div>
+            <div class="card-content">
+              <p>Direccion</p>
+            </div>
+            <div class="card-action">
+              <a href="#">Ver mas...</a>
+            </div>
+          </div>
+      </div>
+      <div class="col s12 m6 l3">
+        <div class="card">
+            <div class="card-image">
+              <img src="http://lorempixel.com/output/city-q-c-640-480-6.jpg">
+              <span class="card-title">Precio</span>
+            </div>
+            <div class="card-content">
+              <p>Direccion</p>
+            </div>
+            <div class="card-action">
+              <a href="#">Ver mas...</a>
+            </div>
+          </div>
+      </div>
+      <div class="col s12 m6 l3">
+        <div class="card">
+            <div class="card-image">
+              <img src="http://lorempixel.com/output/city-q-c-640-480-6.jpg">
+              <span class="card-title">Precio</span>
+            </div>
+            <div class="card-content">
+              <p>Direccion</p>
+            </div>
+            <div class="card-action">
+              <a href="#">Ver mas...</a>
+            </div>
+          </div>
+      </div>
+      <div class="col s12 m6 l3">
+        <div class="card">
+            <div class="card-image">
+              <img src="http://lorempixel.com/output/city-q-c-640-480-6.jpg">
+              <span class="card-title">Precio</span>
+            </div>
+            <div class="card-content">
+              <p>Direccion</p>
+            </div>
+            <div class="card-action">
+              <a href="#">Ver mas...</a>
+            </div>
+          </div>
+      </div>
     </div>
 
     <script src="admin/js/jquery-3.3.1.min.js"></script>
