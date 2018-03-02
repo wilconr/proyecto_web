@@ -108,8 +108,12 @@ $select->close();
                   cancelButtonColor: '#d33',
                   confirmButtonText: 'Si, Eliminarla!'
                   }).then(function(){
+<<<<<<< HEAD:admin/propiedades/imagenes.php
                     location.href = 'eliminar_img.php?id=<?php echo $fImg['id_propiedad']?>&ruta=<?php echo $fImg['ruta_img']?>&id_propiedad=<?php echo $id?>';
                 })"><img src="<?php echo $fImg['ruta_img'] ?>" alt=""></a>
+=======
+                    location.href = 'eliminar_img.php?id=<?php echo $fImg['id_propiedad']?>&ruta=<?php echo $fImg['ruta_img']?>&id_propiedad=<?php echo $id?>';})"><img src="<?php echo $fImg['ruta_img'] ?>" alt=""></a>
+>>>>>>> origin/master:propiedades/imagenes.php
                 <?php
                 }
                 $selectImg->close();
