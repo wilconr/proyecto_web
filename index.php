@@ -67,12 +67,105 @@
       <?php
         }
         $selectMarc->close();
-        $conexion->close();
       ?>
     </div>
 
+    <div class="row">
+      <div class="col s12">
+          <div class="card">
+              <div class="card-content">
+                <span class="card-title">Buscador de inmuebles</span>
+                <form action="buscar.php" method="post">
+                  <div class="row">
+                    <div class="col s6">
+                      <select id="Departamento" name="departamento" required>
+                        <option value="" disabled selected>ESCOJE UN DEPARTAMENTO</option>
+                        <?php
+                          $selectDep = $conexion->prepare("SELECT * FROM departamentos");
+                          $selectDep->execute();
+                          $resultadoDep = $selectDep->get_result();
+
+                          while ($fDep = $resultadoDep->fetch_assoc())
+                          {
+                          ?>
+
+                          <option value="<?php echo $fDep['id_dep'] ?>"><?php echo $fDep['departamento_dep'] ?></option>
+
+                          <?php
+                            }
+                            $selectDep->close();
+                          ?>
+                      </select>
+                    </div>
+                    <div class="col s6">
+                      <div class="resultadoDep"></div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col s6">
+                      <select name="operacion" required  >
+                        <option value="" disabled selected  >ELIGE LA OPERACION</option>
+                        <option value="VENTA">VENTA</option>
+                        <option value="RENTA">RENTA</option>
+                        <option value="TRASPASO">TRASPASO</option>
+                        <option value="OCUPADO">OCUPADO</option>
+                      </select>
+                    </div>
+                    <div class="col s6">
+                      <select name="tipoinmueble" required >
+                        <option value="" disabled selected  >ELIGE EL TIPO DE INMUEBLE</option>
+                        <option value="CASA">CASA</option>
+                        <option value="TERRENO">TERRENO</option>
+                        <option value="LOCAL">LOCAL</option>
+                        <option value="DEPARTAMENTO">DEPARTAMENTO</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col s6">
+                      <div class="input-field">
+                        <input type="number" name="rango1" title="" id="Rango1" required>
+                        <label for="Rango1">Precio Minimo</label>
+                      </div>
+                    </div>
+                    <div class="col s6">
+                      <div class="input-field">
+                        <input type="number" name="rango2" title="" id="Rango2" required>
+                        <label for="Rango2">Precio Maximo</label>
+                      </div>
+                    </div>
+                  </div>
+
+                  <button type="submit" class="btn">Buscar Inmueble</button>
+                </form>
+              </div>
+          </div>
+      </div>
+    </div>
+
+
+
     <script src="admin/js/jquery-3.3.1.min.js"></script>
     <script src="admin/js/materialize.min.js"></script>
-    <script> $('.slider').slider(); </script>
+    <script>
+      $('.slider').slider();
+      $('select').material_select();
+      $('#Departamento').change(function()
+      {
+        $.post('admin/propiedades/ajax_muni.php',
+        {
+          departamento:$('#Departamento').val(),
+
+          beforeSend: function()
+          {
+            $('.resultadoDep').html("Espere un momento por favor...");
+          }
+        }, function(respuesta)
+        {
+          $('.resultadoDep').html(respuesta);
+        });
+      });
+    </script>
   </body>
 </html>
