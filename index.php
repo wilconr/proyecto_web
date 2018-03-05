@@ -6,6 +6,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-compatible" content="ie-edge">
+    <link rel="shortcut icon" href="favicon.ico">
     <link rel="stylesheet" href="admin/css/materialize.min.css">
     <link rel="stylesheet" href="admin/css/materialize-icon.css">
     <link rel="stylesheet" href="admin/css/sweetalert2.min.css">

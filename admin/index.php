@@ -12,8 +12,8 @@ if (isset($_SESSION['nick']))
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-compatible" content="ie-edge">
-    <link rel="stylesheet" href="css\materialize.min.css">
-    <link rel="stylesheet" href="css\materialize-icon.css">
+    <link rel="stylesheet" href="css/materialize.min.css">
+    <link rel="stylesheet" href="css/materialize-icon.css">
     <title>Proyecto</title>
   </head>
   <body class="grey lighten-2">

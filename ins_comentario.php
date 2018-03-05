@@ -7,10 +7,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
   $correo = htmlentities($_POST['correo']);
   $mensaje = htmlentities($_POST['mensaje']);
   $idPropiedad = htmlentities($_POST['idpropiedad']);
+  $estatus = "NUEVO";
   $id = '';
 
-  $insert = $conexion->prepare("INSERT INTO comentarios VALUES(?,?,?,?,?,?) ");
-  $insert->bind_param("isssss",$id, $idPropiedad, $nombre, $telefono, $correo, $mensaje);
+  $insert = $conexion->prepare("INSERT INTO comentarios VALUES(?,?,?,?,?,?,?)");
+  $insert->bind_param("issssss",$id, $idPropiedad, $nombre, $telefono, $correo, $mensaje,$estatus);
 
   if ($insert->execute())
   {
