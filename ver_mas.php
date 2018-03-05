@@ -23,7 +23,7 @@ if ($f =$res->fetch_assoc())
 </head>
 <body class="blue-grey lighten-5">
 <nav class="red" >
-  <a href="#" class="brand-logo center">Logo</a>
+  <a href="index.php" class="brand-logo center">Logo</a>
 </nav>
 
 <div class="container">
@@ -113,15 +113,15 @@ if ($f =$res->fetch_assoc())
                  </div>
                  <div class="input-field">
                    <input type="text" name="telefono"   title=""  id="Telefono"  >
-                   <label for="telefono">Telefono:</label>
+                   <label for="Telefono">Telefono:</label>
                  </div>
                  <div class="input-field">
                    <input type="email" name="correo"   title=""  id="Correo" required  >
-                   <label for="correo">Correo:</label>
+                   <label for="Torreo">Correo:</label>
                  </div>
                  <div class="input-field">
                    <textarea name="mensaje" rows="8" cols="80" id="Mensaje" onblur="may(this.value, this.id)" class="materialize-textarea"></textarea>
-                   <label for="">Mensaje:</label>
+                   <label for="Mensaje">Mensaje:</label>
                    <input type="hidden" name="idpropiedad" id="IdPropiedad" value="<?php echo $id ?>">
                  </div>
                  <button type="button" class="btn" id="Enviar">Enviar</button>
