@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Mar 03, 2018 at 11:18 PM
+-- Generation Time: Mar 05, 2018 at 11:14 PM
 -- Server version: 10.1.29-MariaDB
 -- PHP Version: 7.2.0
 
@@ -47,6 +47,31 @@ INSERT INTO `clientes` (`id_cliente`, `nombre_cliente`, `dir_cliente`, `tel_clie
 (3, 'JUAN FUENTES RIOS', 'CALLE 6 N&deg; 34-21', '3273451239', 'juanf@mail.com', 'JEISON RUIZ'),
 (4, 'ERWIN FABIAN', 'CARRERA 15 E 17-56', '3173764562', 'erwin@gmail.com', 'WILMER CONTRERAS'),
 (5, 'ASTRID MILEIDY', 'CALLE56 N&deg;87-23', '2135467862', 'astrid@micorreo.com', 'JEISON RUIZ');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `comentarios`
+--
+
+CREATE TABLE `comentarios` (
+  `id_com` int(10) NOT NULL,
+  `id_propiedad` varchar(200) NOT NULL,
+  `nombre_com` varchar(200) NOT NULL,
+  `tel_com` varchar(30) NOT NULL,
+  `correo_com` varchar(200) NOT NULL,
+  `mensaje_com` text NOT NULL,
+  `estatus_com` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `comentarios`
+--
+
+INSERT INTO `comentarios` (`id_com`, `id_propiedad`, `nombre_com`, `tel_com`, `correo_com`, `mensaje_com`, `estatus_com`) VALUES
+(1, '2a377780748d26effa729d0055f21b5e54403dfa', 'joana macias', '2831872342', 'joana@gmail.com', 'me interesa la propiedad', 'NUEVO'),
+(2, 'ead95f64372b113d03dff234df910587c2bbab3a', 'martin esparza', '868769023', 'martin@outlook.com', 'esta propiedad esta disponible ?', 'NUEVO'),
+(3, '2a377780748d26effa729d0055f21b5e54403dfa', 'mariano ortiz', '146785246', 'mariano@yahoo.es', 'esta propiedad cuenta con due&ntilde;os ?', 'NUEVO');
 
 -- --------------------------------------------------------
 
@@ -151,10 +176,8 @@ CREATE TABLE `inventario` (
 --
 
 INSERT INTO `inventario` (`propiedad_inv`, `consecutivo_inv`, `id_cliente`, `departamento_dep`, `municipio_mun`, `nombre_cliente`, `precio_inv`, `barrio_sector_inv`, `calle_num_inv`, `numero_int_inv`, `m2t_inv`, `baño_inv`, `plantas_inv`, `caracteristicas_inv`, `m2c_inv`, `cuartos_inv`, `garajes_inv`, `observaciones_inv`, `forma_pago_inv`, `asesor_cliente`, `tipo_inmueble_inv`, `fecha_registro_inv`, `comentario_web_inv`, `operacion_inv`, `foto_principal_inv`, `mapa_inv`, `marcado_inv`, `estatus_inv`) VALUES
-('32dd053f4b963e980fc84d7c5804a2a38e6f51a2', 18, 4, 'SANTANDER', 'BUCARAMANGA', 'ERWIN FABIAN', 53000000, 'LA CUMBRE', 'CARRERA 9AE 27-55', 1, 32, 3, 2, 'GRANDE', 30, 4, 1, 'NINGUNA', 'CONTADO', 'WILMER CONTRERAS', 'CASA', '2018-03-02', 'NINGUNO', 'VENTA', 'casas/principal_40632dd053f4b963e980fc84d7c5804a2a38e6f51a2.jpg', 'CARRERA 9AE 27-55 BUCARAMANGA, SANTANDER', '', 'ACTIVO'),
-('37857f2e73ea52ad5bf9d8bfb402cfa82c48d378', 15, 3, 'ARAUCA', 'ARAUQUITA', 'JUAN FUENTES RIOS', 34567899765, 'MOSQUERA', 'CALE 12 # 32-87', 2, 23, 2, 2, 'DCFVGYBUHNJ', 21, 3, 1, 'FVGHJVYBUNJ', 'CONTADO', 'JEISON RUIZ', 'CASA', '2018-02-28', 'CVGBHNJMXCRVTBYNM', 'VENTA', 'casas/foto_principal.png', 'CALE 12 # 32-87 ARAUQUITA,ARAUCA', 'SI', 'ACTIVO'),
-('3c61126d61b0a9a757f6fb7fdbc41a6381143355', 16, 1, 'BOLÍVAR', 'ACH&Iacute;', 'ENRIQUE FLORES', 34567890, 'LA POSADA', 'CALLE 31 # 23-09', 0, 34, 3, 3, 'XCVUBINOMKL,&Ntilde;.{', 32, 4, 2, 'DFGUHJ  KLNKLM.M', 'CONTADO', 'WILMER CONTRERAS', 'CASA', '2018-03-02', 'CGVHBKJNLJO&Ntilde;JLJLIHGYJ', 'RENTA', 'casas/principal_5873c61126d61b0a9a757f6fb7fdbc41a6381143355.jpg', 'CALLE 31 # 23-09 ACH&Iacute;, BOLÍVAR', 'SI', 'ACTIVO'),
-('8b2174cb5b9fd1fae96ca83ef2557ccd82f4137f', 17, 5, 'AMAZONAS', 'PUERTO NARI&Ntilde;O', 'ASTRID MILEIDY', 23456890, 'AGUADAS', 'CALLE 4 # 34-21', 0, 21, 2, 3, 'SDFVGBHNJK', 20, 2, 2, 'FGBHNJMK', 'CREDITO', 'JEISON RUIZ', 'DEPARTAMENTO', '2018-03-02', 'XCVGBHNJK', 'RENTA', 'casas/foto_principal.png', 'CALLE 4 # 34-21 PUERTO NARI&Ntilde;O, AMAZONAS', 'SI', 'ACTIVO');
+('2a377780748d26effa729d0055f21b5e54403dfa', 19, 1, 'AMAZONAS', 'LETICIA', 'ENRIQUE FLORES', 1234568, 'LA MATA', 'CALLE 1', 1, 1213, 2, 2, 'XCRTVBYUNIM,L', 13, 3, 2, 'XCVBNMK', 'CONTADO', 'WILMER CONTRERAS', 'CASA', '2018-03-04', 'ZXCVBNJKM,L', 'VENTA', 'casas/foto_principal.png', 'CALLE 1 LETICIA, AMAZONAS', 'SI', 'ACTIVO'),
+('ead95f64372b113d03dff234df910587c2bbab3a', 20, 2, 'ANTIOQUIA', 'ABEJORRAL', 'LUIS HERRERA', 8765432234, 'MOSQUERA', 'CALLE2', 2, 2212, 2, 3, 'FCVMJBKNLK', 212, 3, 3, 'FCVBJKNLK', 'CREDITO', 'JOSE PLATA', 'LOCAL', '2018-03-01', 'ZXTCYTVUBINJKM', 'RENTA', 'casas/foto_principal.png', 'CALLE2 ABEJORRAL, ANTIOQUIA', 'SI', 'ACTIVO');
 
 -- --------------------------------------------------------
 
@@ -1334,6 +1357,12 @@ ALTER TABLE `clientes`
   ADD PRIMARY KEY (`id_cliente`);
 
 --
+-- Indexes for table `comentarios`
+--
+ALTER TABLE `comentarios`
+  ADD PRIMARY KEY (`id_com`);
+
+--
 -- Indexes for table `departamentos`
 --
 ALTER TABLE `departamentos`
@@ -1383,6 +1412,12 @@ ALTER TABLE `clientes`
   MODIFY `id_cliente` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
+-- AUTO_INCREMENT for table `comentarios`
+--
+ALTER TABLE `comentarios`
+  MODIFY `id_com` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
 -- AUTO_INCREMENT for table `imagenes`
 --
 ALTER TABLE `imagenes`
@@ -1392,7 +1427,7 @@ ALTER TABLE `imagenes`
 -- AUTO_INCREMENT for table `inventario`
 --
 ALTER TABLE `inventario`
-  MODIFY `consecutivo_inv` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `consecutivo_inv` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `slider`
